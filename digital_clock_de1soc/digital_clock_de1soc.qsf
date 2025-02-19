@@ -1,0 +1,177 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2024  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+# Date created = 21:31:13  February 12, 2025
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		digital_clock_de1soc_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Intel recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEMA5F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY digital_clock_de1soc
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 23.1STD.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:31:13  FEBRUARY 12, 2025"
+set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.1 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name BOARD "DE1-SoC Board"
+set_global_assignment -name EDA_SIMULATION_TOOL "Questa Intel FPGA (VHDL)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_timing
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
+set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+
+
+#============================================================
+# CLOCK
+#============================================================
+
+#============================================================
+# LED
+#============================================================
+
+#============================================================
+# KEY
+#============================================================
+
+#============================================================
+# SW
+#============================================================
+
+#============================================================
+# SEG7
+#============================================================
+# seconds displayed on HEX7, HEX6
+
+# hour displayed on HEX3, HEX2
+
+# minutes displayed on HEX1, HEX0
+
+
+
+
+#============================================================
+# CLOCK
+#============================================================
+set_location_assignment PIN_AF14 -to clk_50MHz_external
+
+#============================================================
+# LED
+#============================================================
+set_location_assignment PIN_W16 -to LED_setup_mode
+set_location_assignment PIN_V16 -to LED_reset
+
+#============================================================
+# KEY
+#============================================================
+set_location_assignment PIN_AA14 -to btn_set_seconds
+set_location_assignment PIN_AA15 -to btn_set_minutes
+set_location_assignment PIN_W15 -to btn_set_hour
+set_location_assignment PIN_Y16 -to btn_setup_mode
+
+#============================================================
+# SW
+#============================================================
+set_location_assignment PIN_AB12 -to slide_sw_RESET
+
+#============================================================
+# SEG7
+#============================================================
+# seconds displayed on HEX7, HEX6
+set_location_assignment PIN_AJ29 -to seven_seg_seconds1[0]
+set_location_assignment PIN_AH29 -to seven_seg_seconds1[1]
+set_location_assignment PIN_AH30 -to seven_seg_seconds1[2]
+set_location_assignment PIN_AG30 -to seven_seg_seconds1[3]
+set_location_assignment PIN_AF29 -to seven_seg_seconds1[4]
+set_location_assignment PIN_AF30 -to seven_seg_seconds1[5]
+set_location_assignment PIN_AD27 -to seven_seg_seconds1[6]
+set_location_assignment PIN_AE26 -to seven_seg_seconds0[0]
+set_location_assignment PIN_AE27 -to seven_seg_seconds0[1]
+set_location_assignment PIN_AE28 -to seven_seg_seconds0[2]
+set_location_assignment PIN_AG27 -to seven_seg_seconds0[3]
+set_location_assignment PIN_AF28 -to seven_seg_seconds0[4]
+set_location_assignment PIN_AG28 -to seven_seg_seconds0[5]
+set_location_assignment PIN_AH28 -to seven_seg_seconds0[6]
+
+# hour displayed on HEX3, HEX2
+set_location_assignment PIN_V25 -to seven_seg_hour1[0]
+set_location_assignment PIN_AA28 -to seven_seg_hour1[1]
+set_location_assignment PIN_Y27 -to seven_seg_hour1[2]
+set_location_assignment PIN_AB27 -to seven_seg_hour1[3]
+set_location_assignment PIN_AB26 -to seven_seg_hour1[4]
+set_location_assignment PIN_AA26 -to seven_seg_hour1[5]
+set_location_assignment PIN_AA25 -to seven_seg_hour1[6]
+set_location_assignment PIN_AA24 -to seven_seg_hour0[0]
+set_location_assignment PIN_Y23 -to seven_seg_hour0[1]
+set_location_assignment PIN_Y24 -to seven_seg_hour0[2]
+set_location_assignment PIN_W22 -to seven_seg_hour0[3]
+set_location_assignment PIN_W24 -to seven_seg_hour0[4]
+set_location_assignment PIN_V23 -to seven_seg_hour0[5]
+set_location_assignment PIN_W25 -to seven_seg_hour0[6]
+
+# minutes displayed on HEX1, HEX0
+set_location_assignment PIN_AD26 -to seven_seg_minutes1[0]
+set_location_assignment PIN_AC27 -to seven_seg_minutes1[1]
+set_location_assignment PIN_AD25 -to seven_seg_minutes1[2]
+set_location_assignment PIN_AC25 -to seven_seg_minutes1[3]
+set_location_assignment PIN_AB28 -to seven_seg_minutes1[4]
+set_location_assignment PIN_AB25 -to seven_seg_minutes1[5]
+set_location_assignment PIN_AB22 -to seven_seg_minutes1[6]
+set_location_assignment PIN_AB23 -to seven_seg_minutes0[0]
+set_location_assignment PIN_AE29 -to seven_seg_minutes0[1]
+set_location_assignment PIN_AD29 -to seven_seg_minutes0[2]
+set_location_assignment PIN_AC28 -to seven_seg_minutes0[3]
+set_location_assignment PIN_AD30 -to seven_seg_minutes0[4]
+set_location_assignment PIN_AC29 -to seven_seg_minutes0[5]
+set_location_assignment PIN_AC30 -to seven_seg_minutes0[6]
+
+
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE my_altpll.vhd
+set_global_assignment -name VHDL_FILE top_level.vhd
+set_global_assignment -name VHDL_FILE hex2led.vhd
+set_global_assignment -name VHDL_FILE edge_detection.vhd
+set_global_assignment -name VHDL_FILE debounce.vhd
+set_global_assignment -name VHDL_FILE clock_counter.vhd
+set_global_assignment -name VHDL_FILE bin2bcd.vhd
+set_global_assignment -name QIP_FILE my_pll.qip
+set_global_assignment -name SIP_FILE my_pll.sip
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
